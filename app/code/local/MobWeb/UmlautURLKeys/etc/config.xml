@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MobWeb_UmlautURLKeys>
+            <version>0.1.0</version>
+        </MobWeb_UmlautURLKeys>
+    </modules>
+    <global>
+        <models>
+            <catalog>
+                <rewrite>
+                    <!-- Rewrite the Category model where the URL is defined -->
+                    <category>MobWeb_UmlautURLKeys_Model_Category</category>
+                    <!-- Rewrite the Product model where the URL is defined -->
+                    <product_url>MobWeb_UmlautURLKeys_Model_Product_Url</product_url>
+                </rewrite>
+            </catalog>
+        </models>
+    </global>
+</config>

@@ -1,0 +1,9 @@
+app/code/local/MobWeb/UmlautURLKeys app/code/local/MobWeb/UmlautURLKeys/
+
+recreate-category-url-keys.php recreate-category-url-keys.php
+recreate-product-url-keys.php recreate-product-url-keys.php
+
+app/etc/modules/MobWeb_UmlautURLKeys.xml app/etc/modules/MobWeb_UmlautURLKeys.xml
+
+# Clear the cache
+@shell   rm -rf $PROJECT/var/cache/* && echo "Magento Cache cleared"
