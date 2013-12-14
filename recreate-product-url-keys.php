@@ -13,21 +13,20 @@ Mage::setIsDeveloperMode(true);
 Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
 
 // Load all the produts
-$model = Mage::getModel('catalog/product');
-$products = $model->getCollection();
+$products = Mage::getModel('catalog/product')->getCollection();
 echo sprintf('Updating %d products', $products->count());
 echo "\n<br />";
 
 // Loop through the products
 foreach($products as $product) {
 	// Load the full product model
-	$product = $model->load($product->getId());
+	$product = Mage::getModel('catalog/product')->load($product->getId());
 
 	// Reset the product's URL key
     $product->setUrlKey($product->getName())->save();
 
     // Display the updated URL key
-    $product = $model->load($product->getId());
+    $product = Mage::getModel('catalog/product')->load($product->getId());
     echo sprintf('URL key for product %s set to: %s', $product->getName(), $product->getUrlKey());
     echo "\n<br />";
 

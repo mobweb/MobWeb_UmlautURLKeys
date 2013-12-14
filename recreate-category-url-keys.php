@@ -13,8 +13,7 @@ Mage::setIsDeveloperMode(true);
 Mage::app()->setCurrentStore(Mage_Core_Model_App::ADMIN_STORE_ID);
 
 // Load all the categories
-$model = Mage::getModel('catalog/category');
-$categories = $model->getCollection();
+$categories = Mage::getModel('catalog/category')->getCollection();
 echo sprintf('Updating %d categories', $categories->count());
 echo "\n<br />";
 
@@ -22,7 +21,7 @@ echo "\n<br />";
 foreach($categories as $category) {
 	// Load the full category model
 	$categoryId = $category->getId();
-	$category = $model->load($category->getId());
+	$category = Mage::getModel('catalog/category')->load($category->getId());
 
 	// Only update the "normal" categories
 	if($categoryId < 4) {
@@ -35,7 +34,7 @@ foreach($categories as $category) {
     $category->setUrlKey($category->formatUrlKey($category->getName()))->save();
 
     // Display the updated URL key
-    $category = $model->load($category->getId());
+    $category = Mage::getModel('catalog/category')->load($category->getId());
     echo sprintf('URL key for category %s set to: %s', $category->getName(), $category->getUrlKey());
     echo "\n<br />";
 
